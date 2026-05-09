@@ -499,7 +499,7 @@ def load_font(size, bold=False):
 TITLE_FONT = load_font(68, True)
 
 # Bigger letters
-LETTER_FONT = load_font(190, True)
+LETTER_FONT = load_font(120, True)
 
 # Bigger countdown
 COUNT_FONT = load_font(220, True)
@@ -562,8 +562,8 @@ def get_bounce_offset(t):
 def draw_word_boxes(draw, letters, show_answer=False):
 
     # Bigger boxes
-    box_size = 120
-    gap = 20
+    box_size = 180
+    gap = 24
 
     total_width = len(letters) * box_size + (len(letters) - 1) * gap
     start_x = (WIDTH - total_width) // 2
