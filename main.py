@@ -662,7 +662,8 @@ def draw_word_boxes(draw, letters, show_answer=False):
             draw.text(
                 (text_x, text_y),
                 ch,
-                font=font,
+                # font=font,
+                font=load_font(220, True),
                 fill=GREEN if show_answer else TEXT_COLOR,
             )
 
