@@ -1,0 +1,29 @@
+# fastapi
+# uvicorn
+# python-multipart
+# moviepy
+# pillow
+# numpy
+# gtts
+# imageio
+# imageio-ffmpeg
+
+
+
+
+
+
+
+
+
+
+
+fastapi
+uvicorn
+python-multipart
+moviepy
+pillow
+numpy
+gtts
+imageio
+imageio-ffmpeg
