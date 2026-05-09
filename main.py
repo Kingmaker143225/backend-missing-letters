@@ -645,7 +645,7 @@ def load_font(size, bold=False):
 
 
 TITLE_FONT = load_font(68, True)
-LETTER_FONT = load_font(90, True)
+LETTER_FONT = load_font(120, True)
 COUNT_FONT = load_font(180, True)
 ANSWER_FONT = load_font(56, True)
 SMALL_FONT = load_font(36, True)
@@ -735,7 +735,7 @@ def draw_word_boxes(draw, letters):
             bbox = draw.textbbox((0, 0), ch, font=LETTER_FONT)
             tw = bbox[2] - bbox[0]
             th = bbox[3] - bbox[1]
-
+            
             draw.text(
                 (
                     x + (box_size - tw) / 2,
