@@ -499,7 +499,7 @@ def load_font(size, bold=False):
 TITLE_FONT = load_font(68, True)
 
 # Bigger letters
-LETTER_FONT = load_font(120, True)
+LETTER_FONT = load_font(110, True)
 
 # Bigger countdown
 COUNT_FONT = load_font(220, True)
@@ -559,9 +559,60 @@ def get_bounce_offset(t):
 # DRAW WORD BOXES
 # =========================================================
 
+# def draw_word_boxes(draw, letters, show_answer=False):
+
+#     # Bigger boxes
+#     box_size = 120
+#     gap = 24
+
+#     total_width = len(letters) * box_size + (len(letters) - 1) * gap
+#     start_x = (WIDTH - total_width) // 2
+
+#     y = 760
+
+#     for i, ch in enumerate(letters):
+
+#         x = start_x + i * (box_size + gap)
+
+#         fill_color = "#FFFFFF" if ch == "_" else BOX_FILL
+
+#         # Shadow
+#         draw.rounded_rectangle(
+#             (x + 4, y + 6, x + box_size + 4, y + box_size + 6),
+#             radius=18,
+#             fill=SHADOW_COLOR,
+#         )
+
+#         # Main box
+#         draw.rounded_rectangle(
+#             (x, y, x + box_size, y + box_size),
+#             radius=18,
+#             fill=fill_color,
+#             outline=ORANGE,
+#             width=5,
+#         )
+
+#         if ch != "_":
+
+#             bbox = draw.textbbox((0, 0), ch, font=LETTER_FONT)
+
+#             tw = bbox[2] - bbox[0]
+#             th = bbox[3] - bbox[1]
+
+#             draw.text(
+#                 (
+#                     x + (box_size - tw) / 2,
+#                     y + (box_size - th) / 2 - 12,
+#                 ),
+#                 ch,
+#                 font=LETTER_FONT,
+
+#                 # GREEN AFTER REVEAL
+#                 fill=GREEN if show_answer else TEXT_COLOR,
+#             )
+
 def draw_word_boxes(draw, letters, show_answer=False):
 
-    # Bigger boxes
     box_size = 180
     gap = 24
 
@@ -579,35 +630,39 @@ def draw_word_boxes(draw, letters, show_answer=False):
         # Shadow
         draw.rounded_rectangle(
             (x + 4, y + 6, x + box_size + 4, y + box_size + 6),
-            radius=18,
+            radius=22,
             fill=SHADOW_COLOR,
         )
 
-        # Main box
+        # Main Box
         draw.rounded_rectangle(
             (x, y, x + box_size, y + box_size),
-            radius=18,
+            radius=22,
             fill=fill_color,
             outline=ORANGE,
-            width=5,
+            width=6,
         )
 
+        # Draw Letter
         if ch != "_":
 
-            bbox = draw.textbbox((0, 0), ch, font=LETTER_FONT)
+            # IMPORTANT
+            font = load_font(110, True)
+
+            bbox = draw.textbbox((0, 0), ch, font=font)
 
             tw = bbox[2] - bbox[0]
             th = bbox[3] - bbox[1]
 
-            draw.text(
-                (
-                    x + (box_size - tw) / 2,
-                    y + (box_size - th) / 2 - 12,
-                ),
-                ch,
-                font=LETTER_FONT,
+            text_x = x + (box_size - tw) / 2
 
-                # GREEN AFTER REVEAL
+            # FIXED VERTICAL ALIGNMENT
+            text_y = y + (box_size - th) / 2 - 25
+
+            draw.text(
+                (text_x, text_y),
+                ch,
+                font=font,
                 fill=GREEN if show_answer else TEXT_COLOR,
             )
 
