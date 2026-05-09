@@ -644,11 +644,27 @@ def load_font(size, bold=False):
     return ImageFont.load_default()
 
 
+# TITLE_FONT = load_font(68, True)
+# LETTER_FONT = load_font(120, True)
+# COUNT_FONT = load_font(180, True)
+# ANSWER_FONT = load_font(56, True)
+# SMALL_FONT = load_font(36, True)
+# =========================
+# FONT SETTINGS
+# =========================
 TITLE_FONT = load_font(68, True)
-LETTER_FONT = load_font(120, True)
-COUNT_FONT = load_font(180, True)
-ANSWER_FONT = load_font(56, True)
-SMALL_FONT = load_font(36, True)
+
+# Increase this to make letters inside boxes larger
+LETTER_FONT = load_font(160, True)
+
+# Countdown number (5,4,3,2,1)
+COUNT_FONT = load_font(220, True)
+
+# Final answer text (optional)
+ANSWER_FONT = load_font(72, True)
+
+# Small text like "Find the missing letter"
+SMALL_FONT = load_font(42, True)
 
 # =========================================================
 # TEXT HELPERS
